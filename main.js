@@ -10,10 +10,10 @@ const app = ()=>{
 
     //Duration
     let songDuration = song.duration;
-    console.log(songDuration)
+ 
 
     outline.style.strokeDasharray = outlineLength;
-    outline.style.strokeDashoffset=400;
+    // outline.style.strokeDashoffset=400;
 
     //Play music
     play.addEventListener('click',() => {
@@ -27,13 +27,10 @@ const app = ()=>{
     
     song.ontimeupdate = () => {
         let currentTime=song.currentTime;
-
+        // Progress bar
+        let progress = outlineLength -currentTime ;
+        outline.style.strokeDashoffset=progress;
     }
-
-    // Progress bar
-    let progress = outlineLength;
-    
-
 }
 
 
