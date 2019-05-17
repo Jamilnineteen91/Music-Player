@@ -7,13 +7,9 @@ const app = ()=>{
     
     // Length of outline
     const outlineLength = outline.getTotalLength();
-    console.log(outerWidth);
-
-    //Duration
-    let songDuration = parseInt(song.duration);
     
     outline.style.strokeDasharray = outlineLength;
-    outline.style.strokeDashoffset=outlineLength;
+    outline.style.strokeDashoffset= outlineLength;
 
     //Play music
     play.addEventListener('click',() => {
@@ -26,10 +22,13 @@ const app = ()=>{
     });
     
     song.ontimeupdate = () => {
+        // Current song time and duration
+        let songDuration = parseInt(song.duration);
         let currentTime=song.currentTime;
+  
         // Progress bar
-        let progress = outlineLength * (currentTime/songDuration);
-        outline.style.strokeDashoffset=progress;
+        let progress = outlineLength-currentTime*(outlineLength/songDuration);
+        outline.style.strokeDashoffset=parseInt(progress);
     }
 }
 
