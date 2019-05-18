@@ -82,15 +82,15 @@ body{
   padding: 1px;
 }
 
-.track-info hr{
-  border-top:none;
-  border-right:none;
-  border-left:none;
-  border-bottom:#F5F5F5 1px solid;
+.line-break{
+  border-bottom:1px solid white;
+  width: 40%;
+  margin-left: 15px;
+  opacity: 0.2;
 }
 
 .track-title{
-  width: 300px;
+  width: 90%;
   padding: 0 5px;
   height: 50px;
 }
