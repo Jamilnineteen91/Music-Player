@@ -32,6 +32,13 @@ body{
   justify-content: space-evenly;
 }
 
+#music-player #cover-art{
+  border-radius:50%;
+  height:412px;
+  width: 412px;
+  margin-left: 18px;
+}
+
 #music-player svg{
   position: absolute;
   top: 50%;
@@ -45,7 +52,7 @@ body{
   width:50%;
   height:auto;
   background-image: linear-gradient(#C0C0C0,#17A5F7);
-  position:absolute;
+  position:relative;
   border-radius: 18px;
   overflow: scroll;
   overflow-x: hidden;
