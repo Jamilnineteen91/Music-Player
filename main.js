@@ -20,7 +20,7 @@ const app = ()=>{
             
         }else{
             song.pause();
-            coverArt.style.animation='none';
+            coverArt.style.animationPlayState ='paused';
         }
         
     });
