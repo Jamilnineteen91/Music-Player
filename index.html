@@ -13,7 +13,7 @@
         <div class="app">
             <div id="music-player">
                 <audio class="song">
-                    <source src="audio/Exhibit C.mp3" type="audio/mpeg">
+                    <source src="audio/Glory.mp3" type="audio/mpeg">
                 </audio>
                 <img id="cover-art" class="play" src="img/elley_duhe-immortal.jpg" alt="cover-art">
                 <svg 
@@ -52,8 +52,14 @@
             </div>
             
             <div class="track-list-container">
-                  <div class="track-info">
-
+                <div id="audio-controls">
+                    <button><i class="fas fa-step-backward"></i></button>
+                    <button><i class="fas fa-play"></i></button>
+                    <button><i class="fas fa-stop"></i></button>
+                    <button><i class="fas fa-step-forward"></i></button>
+                    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                </div>
+                <div class="track-info">
                       <div class="track-img">
                           <img src="img/Jay_Z-The_Black_Album.png">
                       </div>
@@ -61,10 +67,10 @@
                           <h6>What More Can I say</h6>
                           <p>Jay Z</p>
                       </div>    
-                  </div>
-                  <div class="line-break"></div>
+                </div>
+                <div class="line-break"></div>
                       
-                  <div class="track-info">
+                <div class="track-info">
                         <div class="track-img">
                             <img src="img/Dio-Holy_Diver.jpg">
                         </div>
@@ -72,8 +78,8 @@
                             <h6>Holy Diver</h6>
                             <p>Dio</p>
                         </div>
-                    </div>
-                    <div class="line-break"></div>
+                </div>
+                <div class="line-break"></div>
                 
                 <div class="track-info">
                     <div class="track-img">
@@ -85,7 +91,7 @@
                     </div>
                 </div>
                 <div class="line-break"></div>
-                
+            
                 <div class="track-info">
                     <div class="track-img">
                         <img src="img/Brother_Kamau-Jusfayu.jpeg">
@@ -96,7 +102,7 @@
                     </div>
                 </div>
                 <div class="line-break"></div>
-                
+            
                 <div class="track-info">
                     <div class="track-img">
                         <img src="img/elley_duhe-immortal.jpg">
@@ -107,7 +113,7 @@
                     </div>
                 </div>
                 <div class="line-break"></div>
-                
+            
                 <div class="track-info">
                     <div class="track-img">
                         <img src="img/Jay_Z-smile.jpg">
@@ -118,7 +124,7 @@
                     </div>
                 </div>
                 <div class="line-break"></div>
-                
+            
                 <div class="track-info">
                     <div class="track-img">
                         <img src="img/n.o.r.e.-don't_know.jpg">
@@ -129,7 +135,7 @@
                     </div>
                 </div>
                 <div class="line-break"></div>
-                
+            
                 <div class="track-info">
                     <div class="track-img">
                         <img src="img/youth-daughter.jpg">
@@ -140,7 +146,7 @@
                     </div>
                 </div>
                 <div class="line-break"></div>
-                
+            
                 <div class="track-info">
                     <div class="track-img">
                         <img src="img/luca_fogale-what_i_came_here_for.jpeg">
@@ -151,7 +157,7 @@
                     </div>
                 </div>
                 <div class="line-break"></div>
-                
+            
                 <div class="track-info">
                     <div class="track-img">
                         <img src="img/Niro-printemps_blanc.jpeg">
@@ -166,10 +172,6 @@
             </div>
 
         </div>
-    </div>
-
-    
-    
     <script type="text/javascript" src="main.js"></script>
 </body>
 </html>

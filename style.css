@@ -49,7 +49,7 @@ body{
 }
 
 .track-list-container{
-  width:50%;
+  width:30%;
   height:auto;
   background-image: linear-gradient(#C0C0C0,#17A5F7);
   position:relative;
@@ -57,6 +57,22 @@ body{
   overflow: scroll;
   overflow-x: hidden;
 }
+
+#audio-controls{
+  height: auto;
+  width: 50%;
+  margin-top: 15px;
+  margin-left: 15px;
+  position: relative;
+  border: 2px solid white;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.slider{
+  
+}
+
 
 .track-info{
   width: 100%;
