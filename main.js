@@ -2,6 +2,7 @@ const app = ()=>{
     const song = document.querySelector('.song');
     const play =document.querySelector('.play');
     const outline = document.querySelector('.moving-outline circle');
+    const coverArt = document.querySelector('#cover-art');
 
     // Songs
     
@@ -15,8 +16,11 @@ const app = ()=>{
     play.addEventListener('click',() => {
         if (song.paused){
             song.play();
+            coverArt.style.animation='rotation 4s infinite linear';
+            
         }else{
             song.pause();
+            coverArt.style.animation='none';
         }
         
     });

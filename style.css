@@ -37,6 +37,16 @@ body{
   height:412px;
   width: 412px;
   margin-left: 18px;
+  animation: none;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
 
 #music-player svg{
@@ -61,16 +71,22 @@ body{
 #audio-controls{
   height: auto;
   width: 50%;
-  margin-top: 15px;
-  margin-left: 15px;
+  margin-top: 2%;
+  margin-left: 4%;;
   position: relative;
   border: 2px solid white;
   border-radius: 15px;
   text-align: center;
+  vertical-align: center;
 }
 
 .slider{
-  
+  margin:0;
+  width: 35%;
+}
+
+button{
+  margin-top: 0;
 }
 
 
