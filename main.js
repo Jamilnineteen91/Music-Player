@@ -33,6 +33,12 @@ const app = ()=>{
         // Progress bar
         let progress = outlineLength-currentTime*(outlineLength/songDuration);
         outline.style.strokeDashoffset=parseInt(progress);
+
+        // Cover art animation
+
+        if(Math.floor(currentTime)==songDuration){
+            coverArt.style.animation='none';
+        }
     }
 }
 
