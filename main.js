@@ -3,6 +3,7 @@ const app = ()=>{
     const play =document.querySelector('.play');
     const outline = document.querySelector('.moving-outline circle');
     const coverArt = document.querySelector('#cover-art');
+    const volumeCtrl = document.getElementById('vol-ctrl');
 
     // Songs
     
@@ -12,6 +13,15 @@ const app = ()=>{
     outline.style.strokeDasharray = outlineLength;
     outline.style.strokeDashoffset= outlineLength;
 
+    // Volume Control
+    volumeCtrl.addEventListener('mousemove',setVolume);
+    function setVolume(){
+        console.log(song.volume);
+        console.log(volumeCtrl.value/100);
+        song.volume=volumeCtrl.value/100;
+        console.log(song.volume);
+    };
+;
     //Play music
     play.addEventListener('click',() => {
         if (song.paused){
