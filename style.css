@@ -17,9 +17,10 @@ body{
 
 .app{
   height: 100vh;
-  display: flex;
+  /* display: flex; */
   justify-content: space-evenly;
   align-items: center;
+  text-align: center;
 }
 
 #music-player{
@@ -30,6 +31,7 @@ body{
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  margin-bottom: -50px; 
 }
 
 #music-player #cover-art{
@@ -59,18 +61,19 @@ body{
 }
 
 .track-list-container{
-  width:30%;
-  height:auto;
+  width:450px;
+  height:200px;
   background-image: linear-gradient(#C0C0C0,#17A5F7);
   position:relative;
   border-radius: 18px;
   overflow: scroll;
   overflow-x: hidden;
+  display: inline-block;
 }
 
 #audio-controls{
   height: auto;
-  width: 50%;
+  width: 90%;
   margin-top: 2%;
   margin-left: 4%;;
   position: relative;
@@ -87,8 +90,9 @@ body{
 
 button{
   margin-top: 0;
+  padding-right: 5%;
+  padding-left: 5%;
 }
-
 
 .track-info{
   width: 100%;
@@ -125,6 +129,7 @@ button{
   width: 90%;
   padding: 0 5px;
   height: 50px;
+  text-align: left;
 }
 
 .track-title h6{
