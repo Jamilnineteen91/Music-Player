@@ -151,4 +151,7 @@ button{
   padding: 0;
 }
 
+.track-title:hover{
+  color: white;
+}
 
