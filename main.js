@@ -1,12 +1,25 @@
 const app = ()=>{
-    const song = document.querySelector('.song');
-    const play =document.querySelector('.play');
-    const outline = document.querySelector('.moving-outline circle');
-    const coverArt = document.querySelector('#cover-art');
-    const volumeCtrl = document.getElementById('vol-ctrl');
-    const outlineLength = outline.getTotalLength();
-    const playBtn=document.getElementById('play');
-    const stopBtn=document.getElementById('stop');
+    let song,play,outline,coverArt,volumeCtrl,outlineLength,playBtn,stopBtn,chevArrows,trackContainer;
+    song = document.querySelector('.song');
+    play =document.querySelector('.play');
+    outline = document.querySelector('.moving-outline circle');
+    coverArt = document.querySelector('#cover-art');
+    volumeCtrl = document.getElementById('vol-ctrl');
+    outlineLength = outline.getTotalLength();
+    playBtn=document.getElementById('play');
+    stopBtn=document.getElementById('stop');
+    chevArrows=document.getElementById('indicator');
+    trackContainer=document.querySelector('.track-list-container');
+
+    ///////////////Track-list toggle////////////////////
+    chevArrows.addEventListener('click',()=>{
+        if (trackContainer.style.visibility=='hidden'){
+            trackContainer.style.visibility='visible';
+        }else{
+            trackContainer.style.visibility='hidden';
+        }
+    });
+
     // Songs
     
     /////////////////Audio Control//////////////////////
