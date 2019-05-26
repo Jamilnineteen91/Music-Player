@@ -15,8 +15,10 @@ const app = ()=>{
     chevArrows.addEventListener('click',()=>{
         if (trackContainer.style.visibility=='hidden'){
             trackContainer.style.visibility='visible';
+            chevArrows.style.transform="rotate(225deg)"
         }else{
             trackContainer.style.visibility='hidden';
+            chevArrows.style.transform="rotate(45deg)"
         }
     });
 
