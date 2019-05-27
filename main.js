@@ -1,7 +1,6 @@
 const app = ()=>{
-    let song,play,outline,coverArt,volumeCtrl,outlineLength,playBtn,stopBtn,chevArrows,trackContainer,curSong;
+    let song,outline,coverArt,volumeCtrl,outlineLength,playBtn,stopBtn,chevArrows,trackContainer,curSong;
     curSong = document.querySelector('.cur-song');
-    play =document.querySelector('.play');
     outline = document.querySelector('.moving-outline circle');
     coverArt = document.querySelector('#cover-art');
     volumeCtrl = document.getElementById('vol-ctrl');
@@ -11,7 +10,7 @@ const app = ()=>{
     chevArrows=document.getElementById('indicator');
     trackContainer=document.querySelector('.track-list-container');
     
-
+    
     ///////////////Track-list toggle////////////////////
     chevArrows.addEventListener('click',()=>{
         if (trackContainer.style.visibility=='hidden'){
@@ -36,18 +35,16 @@ const app = ()=>{
     
     document.addEventListener('click',function(e){
         const x = e.target.tagName;
-        song.currentTime=0;
+        curSong.currentTime=0;
         coverArt.style.animation='none';
         if (x=='H6'||x=='P'){
-            let track=e.target.parentNode.querySelector('source');
-            song.src=track.src;
-            song.play();
+            const track=e.target.parentNode.querySelector('source');
+            curSong.src=track.src;
+            coverArt.src=track.parentElement.parentElement.querySelector('img').src;
+            curSong.play();
             coverArt.style.animation='rotation 4s infinite linear';
         }
-        
     })
-
-
 
     
     /////////////////Audio Control//////////////////////
@@ -72,18 +69,17 @@ const app = ()=>{
     // Volume Control
     volumeCtrl.addEventListener('mousemove',setVolume);
     function setVolume(){
-        song.volume=volumeCtrl.value/100;
+        curSong.volume=volumeCtrl.value/100;
     };
 ;
     //Play music
 
-    play.addEventListener('click',() => {
-        if (song.paused){
-            song.play();
+    coverArt.addEventListener('click',() => {
+        if (curSong.paused){
+            curSong.play();
             coverArt.style.animation='rotation 4s infinite linear';
-            
         }else{
-            song.pause();
+            curSong.pause();
             coverArt.style.animationPlayState ='paused';
         } 
     });
