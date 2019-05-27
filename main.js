@@ -1,5 +1,5 @@
 const app = ()=>{
-    let song,play,outline,coverArt,volumeCtrl,outlineLength,playBtn,stopBtn,chevArrows,trackContainer;
+    let song,play,outline,coverArt,volumeCtrl,outlineLength,playBtn,stopBtn,chevArrows,trackContainer,curSong;
     song = document.querySelector('.song');
     play =document.querySelector('.play');
     outline = document.querySelector('.moving-outline circle');
@@ -10,6 +10,7 @@ const app = ()=>{
     stopBtn=document.getElementById('stop');
     chevArrows=document.getElementById('indicator');
     trackContainer=document.querySelector('.track-list-container');
+    
 
     ///////////////Track-list toggle////////////////////
     chevArrows.addEventListener('click',()=>{
@@ -23,6 +24,30 @@ const app = ()=>{
     });
 
     // Songs
+    curSong=document.createElement("AUDIO");
+    console.log(song);
+    let trackList=document.querySelector('.track-info');
+    
+    document.addEventListener('click',function(e){
+        const x = e.target.tagName;
+        if (x=='H6'||x=='P'){
+            let track=e.target.parentNode.querySelector('source');
+            song.src=track.src;
+            song.play();
+        }
+        
+    })
+
+    let tracks=document.querySelectorAll('source');
+    // console.log(tracks[0]);
+    // for (i=0; i<tracks.length;i++){
+    //     console.log(tracks[i]);
+    //     tracks[i].addEventListener('click',function(e){
+    //         const x = e.target.tagName;
+    //         console.log(i);
+    //     })
+    // }
+
     
     /////////////////Audio Control//////////////////////
     
