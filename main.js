@@ -64,8 +64,8 @@ const app = ()=>{
     });
 
     stopBtn.addEventListener('click',()=>{
-        song.pause();
-        song.currentTime=0;
+        curSong.pause();
+        curSong.currentTime=0;
         coverArt.style.animation='none';
     })
 
