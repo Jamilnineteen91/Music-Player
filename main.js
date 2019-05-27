@@ -1,6 +1,6 @@
 const app = ()=>{
     let song,play,outline,coverArt,volumeCtrl,outlineLength,playBtn,stopBtn,chevArrows,trackContainer,curSong;
-    song = document.querySelector('.song');
+    curSong = document.querySelector('.cur-song');
     play =document.querySelector('.play');
     outline = document.querySelector('.moving-outline circle');
     coverArt = document.querySelector('#cover-art');
@@ -24,7 +24,14 @@ const app = ()=>{
     });
 
     // Songs
-    curSong=document.createElement("AUDIO");
+    let tracks=document.querySelectorAll('.song');
+    console.log(tracks)
+    console.log(tracks[0].parentElement.parentElement.querySelector('img').src);
+    curSong.src=tracks[0].src;
+    coverArt.src=tracks[0].parentElement.parentElement.querySelector('img').src;
+
+
+  
     let trackList=document.querySelector('.track-info');
     
     document.addEventListener('click',function(e){
@@ -40,18 +47,7 @@ const app = ()=>{
         
     })
 
-    let tracks=document.querySelectorAll('.sng');
-    console.log(tracks)
-    console.log(tracks[0].parentElement.parentElement.querySelector('img').src);
-    console.log(tracks.indexOf(song.src))
-    // console.log(tracks[0]);
-    // for (i=0; i<tracks.length;i++){
-    //     console.log(tracks[i]);
-    //     tracks[i].addEventListener('click',function(e){
-    //         const x = e.target.tagName;
-    //         console.log(i);
-    //     })
-    // }
+
 
     
     /////////////////Audio Control//////////////////////
@@ -98,10 +94,10 @@ const app = ()=>{
     outline.style.strokeDasharray = outlineLength;
     outline.style.strokeDashoffset= outlineLength;
     
-    song.ontimeupdate = () => {
+    curSong.ontimeupdate = () => {
         // Current song time and duration
-        let songDuration = parseInt(song.duration);
-        let currentTime=song.currentTime;
+        let songDuration = parseInt(curSong.duration);
+        let currentTime=curSong.currentTime;
   
         // Progress bar
         let progress = outlineLength-currentTime*(outlineLength/songDuration);
