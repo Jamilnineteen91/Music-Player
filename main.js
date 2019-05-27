@@ -25,20 +25,25 @@ const app = ()=>{
 
     // Songs
     curSong=document.createElement("AUDIO");
-    console.log(song);
     let trackList=document.querySelector('.track-info');
     
     document.addEventListener('click',function(e){
         const x = e.target.tagName;
+        song.currentTime=0;
+        coverArt.style.animation='none';
         if (x=='H6'||x=='P'){
             let track=e.target.parentNode.querySelector('source');
             song.src=track.src;
             song.play();
+            coverArt.style.animation='rotation 4s infinite linear';
         }
         
     })
 
-    let tracks=document.querySelectorAll('source');
+    let tracks=document.querySelectorAll('.sng');
+    console.log(tracks)
+    console.log(tracks[0].parentElement.parentElement.querySelector('img').src);
+    console.log(tracks.indexOf(song.src))
     // console.log(tracks[0]);
     // for (i=0; i<tracks.length;i++){
     //     console.log(tracks[i]);
@@ -75,6 +80,7 @@ const app = ()=>{
     };
 ;
     //Play music
+
     play.addEventListener('click',() => {
         if (song.paused){
             song.play();
