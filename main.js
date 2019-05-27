@@ -54,11 +54,11 @@ const app = ()=>{
     
     // Buttons
     playBtn.addEventListener('click',()=>{
-        if (song.paused){
-            song.play();
+        if (curSong.paused){
+            curSong.play();
             coverArt.style.animation='rotation 4s infinite linear';   
         }else{
-            song.pause();
+            curSong.pause();
             coverArt.style.animationPlayState ='paused';
         }
     });
