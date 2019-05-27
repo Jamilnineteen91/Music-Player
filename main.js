@@ -1,5 +1,5 @@
 const app = ()=>{
-    let song,outline,coverArt,volumeCtrl,outlineLength,playBtn,stopBtn,chevArrows,trackContainer,curSong;
+    let outline,coverArt,volumeCtrl,outlineLength,playBtn,stopBtn,chevArrows,trackContainer,curSong;
     curSong = document.querySelector('.cur-song');
     outline = document.querySelector('.moving-outline circle');
     coverArt = document.querySelector('#cover-art');
@@ -10,6 +10,12 @@ const app = ()=>{
     chevArrows=document.getElementById('indicator');
     trackContainer=document.querySelector('.track-list-container');
     
+    /////////////////Default Settings////////////////////
+    let tracks=document.querySelectorAll('.song');
+    curSong.src=tracks[0].src;
+    coverArt.src=tracks[0].parentElement.parentElement.querySelector('img').src;
+    coverArt.style.animation='none';
+
     
     ///////////////Track-list toggle////////////////////
     chevArrows.addEventListener('click',()=>{
@@ -22,18 +28,17 @@ const app = ()=>{
         }
     });
 
-    // Songs
-    let tracks=document.querySelectorAll('.song');
-    console.log(tracks)
-    console.log(tracks[0].parentElement.parentElement.querySelector('img').src);
-    curSong.src=tracks[0].src;
-    coverArt.src=tracks[0].parentElement.parentElement.querySelector('img').src;
-
-
-  
-    let trackList=document.querySelector('.track-info');
+    coverArt.addEventListener('click',()=>{
+        if (curSong.paused){
+            curSong.play();
+            coverArt.style.animation='rotation 4s infinite linear';   
+        }else{
+            curSong.pause();
+            coverArt.style.animationPlayState ='paused';
+        };
+    })
     
-    document.addEventListener('click',function(e){
+    trackContainer.addEventListener('dblclick',function(e){
         const x = e.target.tagName;
         curSong.currentTime=0;
         coverArt.style.animation='none';
@@ -43,9 +48,10 @@ const app = ()=>{
             coverArt.src=track.parentElement.parentElement.querySelector('img').src;
             curSong.play();
             coverArt.style.animation='rotation 4s infinite linear';
+        }else{
+            //pass
         }
     })
-
     
     /////////////////Audio Control//////////////////////
     
@@ -57,7 +63,7 @@ const app = ()=>{
         }else{
             curSong.pause();
             coverArt.style.animationPlayState ='paused';
-        }
+        };
     });
 
     stopBtn.addEventListener('click',()=>{
@@ -71,18 +77,7 @@ const app = ()=>{
     function setVolume(){
         curSong.volume=volumeCtrl.value/100;
     };
-;
-    //Play music
 
-    coverArt.addEventListener('click',() => {
-        if (curSong.paused){
-            curSong.play();
-            coverArt.style.animation='rotation 4s infinite linear';
-        }else{
-            curSong.pause();
-            coverArt.style.animationPlayState ='paused';
-        } 
-    });
     
     /////////////////Seek-bar//////////////////////
     
