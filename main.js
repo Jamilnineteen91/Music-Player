@@ -1,5 +1,5 @@
 const app = ()=>{
-    let outline,coverArt,volumeCtrl,outlineLength,playBtn,stopBtn,nextBtn,prevBtn,chevArrows,trackContainer,curSong;
+    let outline,coverArt,volumeCtrl,outlineLength,playBtn,stopBtn,nextBtn,prevBtn,chevArrows,trackContainer,curSong,playIcon;
     curSong = document.querySelector('.cur-song');
     outline = document.querySelector('.moving-outline circle');
     coverArt = document.querySelector('#cover-art');
@@ -11,6 +11,7 @@ const app = ()=>{
     prevBtn=document.getElementById('prev');
     chevArrows=document.getElementById('indicator');
     trackContainer=document.querySelector('.track-list-container');
+    playIcon=document.querySelectorAll('i')[1];
     
     /////////////////Default Settings////////////////////
     let tracks=document.querySelectorAll('.song');
@@ -32,10 +33,14 @@ const app = ()=>{
     coverArt.addEventListener('click',()=>{
         if (curSong.paused){
             curSong.play();
-            coverArt.style.animation='rotation 4s infinite linear';   
+            coverArt.style.animation='rotation 4s infinite linear'; 
+            playIcon.classList.remove('fa-play');
+            playIcon.classList.add('fa-pause');  
         }else{
             curSong.pause();
             coverArt.style.animationPlayState ='paused';
+            playIcon.classList.remove('fa-pause');
+            playIcon.classList.add('fa-play');
         };
     })
     
@@ -49,6 +54,8 @@ const app = ()=>{
             coverArt.src=track.parentElement.parentElement.querySelector('img').src;
             curSong.play();
             coverArt.style.animation='rotation 4s infinite linear';
+            playIcon.classList.remove('fa-play');
+            playIcon.classList.add('fa-pause');
         }else{
             //pass
         }
@@ -60,10 +67,14 @@ const app = ()=>{
     playBtn.addEventListener('click',()=>{
         if (curSong.paused){
             curSong.play();
-            coverArt.style.animation='rotation 4s infinite linear';   
+            coverArt.style.animation='rotation 4s infinite linear';
+            playIcon.classList.remove('fa-play');
+            playIcon.classList.add('fa-pause');   
         }else{
             curSong.pause();
             coverArt.style.animationPlayState ='paused';
+            playIcon.classList.remove('fa-pause');
+            playIcon.classList.add('fa-play');
         };
     });
 
@@ -72,6 +83,8 @@ const app = ()=>{
         curSong.pause();
         curSong.currentTime=0;
         coverArt.style.animation='none';
+        playIcon.classList.remove('fa-pause');
+        playIcon.classList.add('fa-play');
     })
 
     // Next button
@@ -84,6 +97,8 @@ const app = ()=>{
                 coverArt.src=tracks[i+1].parentElement.parentElement.querySelector('img').src;
                 curSong.play();
                 coverArt.style.animation='rotation 4s infinite linear';
+                playIcon.classList.remove('fa-play');
+                playIcon.classList.add('fa-pause');
                 found=true;
                 i=0;
             }else{
@@ -103,6 +118,8 @@ const app = ()=>{
                 coverArt.src=tracks[i-1].parentElement.parentElement.querySelector('img').src;
                 curSong.play();
                 coverArt.style.animation='rotation 4s infinite linear';
+                playIcon.classList.remove('fa-play');
+                playIcon.classList.add('fa-pause');
                 found=true;
                 i=1;
             }else{
