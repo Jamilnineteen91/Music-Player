@@ -1,5 +1,5 @@
 const app = ()=>{
-    let outline,coverArt,volumeCtrl,outlineLength,playBtn,stopBtn,chevArrows,trackContainer,curSong;
+    let outline,coverArt,volumeCtrl,outlineLength,playBtn,stopBtn,nextBtn,prevBtn,chevArrows,trackContainer,curSong;
     curSong = document.querySelector('.cur-song');
     outline = document.querySelector('.moving-outline circle');
     coverArt = document.querySelector('#cover-art');
@@ -7,6 +7,8 @@ const app = ()=>{
     outlineLength = outline.getTotalLength();
     playBtn=document.getElementById('play');
     stopBtn=document.getElementById('stop');
+    nextBtn=document.getElementById('next');
+    prevBtn=document.getElementById('prev');
     chevArrows=document.getElementById('indicator');
     trackContainer=document.querySelector('.track-list-container');
     
@@ -15,7 +17,6 @@ const app = ()=>{
     curSong.src=tracks[0].src;
     coverArt.src=tracks[0].parentElement.parentElement.querySelector('img').src;
     coverArt.style.animation='none';
-
     
     ///////////////Track-list toggle////////////////////
     chevArrows.addEventListener('click',()=>{
@@ -42,7 +43,7 @@ const app = ()=>{
         const x = e.target.tagName;
         curSong.currentTime=0;
         coverArt.style.animation='none';
-        if (x=='H6'||x=='P'){
+        if (x=='H6'|| x=='P'){
             const track=e.target.parentNode.querySelector('source');
             curSong.src=track.src;
             coverArt.src=track.parentElement.parentElement.querySelector('img').src;
@@ -55,7 +56,7 @@ const app = ()=>{
     
     /////////////////Audio Control//////////////////////
     
-    // Buttons
+    // Play button
     playBtn.addEventListener('click',()=>{
         if (curSong.paused){
             curSong.play();
@@ -66,10 +67,39 @@ const app = ()=>{
         };
     });
 
+    // Stop button
     stopBtn.addEventListener('click',()=>{
         curSong.pause();
         curSong.currentTime=0;
         coverArt.style.animation='none';
+    })
+
+    // Next button
+    nextBtn.addEventListener('click',()=>{
+        let i=0;
+        for (i=0; i<tracks.length;i++){
+            if (tracks[i].src==curSong.src){
+                curSong.src=tracks[i+1].src;
+                coverArt.src=tracks[i+1].parentElement.parentElement.querySelector('img').src;
+                curSong.play();
+            }else{
+                //pass
+            }
+        }
+    })
+
+    // Prev button
+    prevBtn.addEventListener('click',()=>{
+        let i=0;
+        for (i=0; i<tracks.length;i++){
+            if (tracks[i].src==curSong.src){
+                curSong.src=tracks[i-1].src;
+                coverArt.src=tracks[i-1].parentElement.parentElement.querySelector('img').src;
+                curSong.play();
+            }else{
+                //pass
+            }
+        }
     })
 
     // Volume Control
@@ -99,6 +129,15 @@ const app = ()=>{
             coverArt.style.animation='none';
         }
     }
+
+    // let buffer=document.querySelector('.track-outline');
+    // function svgClick (e){
+    //     console.log(e);
+    //     let percent = e.offsetX/this.offsetWidth;
+    //     currentTime=percent*songDuration;
+    //     console.log(percent);
+    //     console.log(currentTime)
+    // };
 }
 
 
