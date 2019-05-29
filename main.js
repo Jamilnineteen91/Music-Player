@@ -95,17 +95,16 @@ const app = ()=>{
 
     // Prev button
     prevBtn.addEventListener('click',()=>{
-        var i=0;
+        var i=1;
         let found=false;
-        while (found!=true && 0<=i){
-            console.log(0<=i);
+        while (found!=true && i<=tracks.length-1){
             if(tracks[i].src==curSong.src){
                 curSong.src=tracks[i-1].src;
                 coverArt.src=tracks[i-1].parentElement.parentElement.querySelector('img').src;
                 curSong.play();
                 coverArt.style.animation='rotation 4s infinite linear';
                 found=true;
-                i=0;
+                i=1;
             }else{
                 //pass
             }
