@@ -76,31 +76,42 @@ const app = ()=>{
 
     // Next button
     nextBtn.addEventListener('click',()=>{
-        let i=0;
-        for (i=0; i<tracks.length;i++){
-            if (tracks[i].src==curSong.src){
+        var i=0;
+        let found=false;
+        while (found!=true && i<tracks.length-1){
+            if(tracks[i].src==curSong.src){
                 curSong.src=tracks[i+1].src;
                 coverArt.src=tracks[i+1].parentElement.parentElement.querySelector('img').src;
                 curSong.play();
+                coverArt.style.animation='rotation 4s infinite linear';
+                found=true;
+                i=0;
             }else{
                 //pass
             }
+            i++;
         }
-    })
+    });
 
     // Prev button
     prevBtn.addEventListener('click',()=>{
-        let i=0;
-        for (i=0; i<tracks.length;i++){
-            if (tracks[i].src==curSong.src){
+        var i=0;
+        let found=false;
+        while (found!=true && 0<=i){
+            console.log(0<=i);
+            if(tracks[i].src==curSong.src){
                 curSong.src=tracks[i-1].src;
                 coverArt.src=tracks[i-1].parentElement.parentElement.querySelector('img').src;
                 curSong.play();
+                coverArt.style.animation='rotation 4s infinite linear';
+                found=true;
+                i=0;
             }else{
                 //pass
             }
+            i++;
         }
-    })
+    });
 
     // Volume Control
     volumeCtrl.addEventListener('mousemove',setVolume);
