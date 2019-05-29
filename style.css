@@ -68,7 +68,7 @@ body{
 }
 
 #indicator{
-  margin-top: -90px;
+  margin-top: -10%;
   margin-left: 450px;
   position: absolute;
   width: 10px;
@@ -111,6 +111,7 @@ body{
 }
 
 .track-list-container{
+  margin-top: 5%;
   visibility: hidden;
   width:450px;
   height:200px;
