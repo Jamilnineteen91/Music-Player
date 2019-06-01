@@ -154,6 +154,9 @@ const app = ()=>{
         // Cover art animation
         if(Math.floor(currentTime)==songDuration){
             coverArt.style.animation='none';
+            playIcon.classList.remove('fa-pause');
+            playIcon.classList.add('fa-play');
+            outline.style.strokeDashoffset=0;
         }
     }
 
