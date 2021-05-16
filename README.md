@@ -7,8 +7,8 @@ A modern music player web app built with javascript.
 
 
 ## Features
-- Progress bar click location equates to the song's time location. (Not Completed)
-- Progress bar hover reveals track time, track length, artist, and track name. (Not Completed)
+- Progress bar click location equates to the song's time location. (incomplete)
+- Progress bar hover reveals track time, track length, artist, and track name. (incomplete)
 - Double click on the player cover art pauses/plays current song.
 - Track-list visibility toggle button.
 
