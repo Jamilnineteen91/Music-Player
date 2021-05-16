@@ -18,12 +18,10 @@ A modern music player web app built with javascript.
 - HTML 5
 - CSS3
 - Javascript
-- Node Javascript
 - [Font Awesome](https://fontawesome.com/?from=io) (player icons)
 
 
 ## What I learned
 
 -  Javascript Software Architecture
-- Node Javascript
 - Javascript ES6
